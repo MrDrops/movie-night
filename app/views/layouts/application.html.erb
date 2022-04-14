@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to 'Home', '/' %>
+      ||
+      <%= link_to 'All actors', actors_path %>
+      <%= link_to 'New actor', new_actor_path %>
+      ||
+      <%= link_to 'All directors', directors_path %>
+      <%= link_to 'New director', new_director_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>

@@ -76,7 +76,7 @@ g8 = Genre.create(:name => 'Comedy')
 g9 = Genre.create(:name => 'Fantasy')
 g10 = Genre.create(:name => 'Romance')
 
-puts "#{ Genre.count } directors created"
+puts "#{ Genre.count } genres created"
 
 User.destroy_all
 
@@ -93,6 +93,8 @@ f1 = Favourite.create(:name => 'Boss list')
 f2 = Favourite.create(:name => 'Basic Movie Goer')
 f3 = Favourite.create(:name => 'Movies and Chill')
 f4 = Favourite.create(:name => 'Who cares, Ill be erased')
+
+puts "#{ Favourite.count } favourites created"
 
 #Associations
     #users have favourites
