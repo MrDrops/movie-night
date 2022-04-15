@@ -80,10 +80,10 @@ puts "#{ Genre.count } genres created"
 
 User.destroy_all
 
-u1 = User.create(:name => 'Boss Man', :email => 'owner@email.com')
-u2 = User.create(:name => 'John Doe', :email => 'johnd@email.com')
-u3 = User.create(:name => 'Jane Jones', :email => 'janej@email.com')
-u4 = User.create(:name => 'Erase Me', :email => 'forgetable@email.com')
+u1 = User.create(:name => 'Boss Man', :email => 'owner@email.com', :password => 'chicken')
+u2 = User.create(:name => 'John Doe', :email => 'johnd@email.com', :password => 'chicken')
+u3 = User.create(:name => 'Jane Jones', :email => 'janej@email.com', :password => 'chicken')
+u4 = User.create(:name => 'Erase Me', :email => 'forgetable@email.com', :password => 'chicken')
 
 puts "#{ User.count } users created"
 

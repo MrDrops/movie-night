@@ -1,8 +1,21 @@
 <h1>
     <%= @actor.name %>
 </h1>
+<h2>
+    Date of birth:
+    <%= @actor.dob.strftime '%A, %B %e, %Y' unless @actor.dob.nil? %>
+</h2>
 
-<div>
-    <%= link_to 'Edit actor', edit_actor_path(@actor) %>
-    <%= link_to 'Delete actor', @actor, :method => 'delete' %>
-</div>
+<ul>
+    <% @actor.movies.each do |movie| %>
+        <li>
+            <%= movie.title %>
+        </li>
+    <% end %>
+</ul>
+<% if @current_user.present? %>
+    <div>
+        <%= link_to 'Edit actor', edit_actor_path(@actor) %>
+        <%= link_to 'Delete actor', @actor, :method => 'delete', :data => { :confirm => 'Sure?' } %>
+    </div>
+<% end %>

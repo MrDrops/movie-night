@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   resources :genres
   resources :favourites
   resources :users, :only => [:new, :create]
+
+  #not CRUD
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
 end
