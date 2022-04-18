@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MovieNight</title>
+    <title>Movie Night</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Chivo:ital@1&display=swap" rel="stylesheet">
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'Home', '/' %>
-      ||
-      <%= link_to 'All actors', actors_path %>
-      ||
-      <%= link_to 'All directors', directors_path %>
-      ||
-      <%= link_to 'All movies', movies_path %>
-      ||
-      <%= link_to 'All genres', genres_path %>
-      ||
-      <% if @current_user.present? %>
-        <%= link_to 'New actor', new_actor_path %>
-        ||
-        <%= link_to 'New director', new_director_path %>
-        ||
-        <%= link_to 'New movie', new_movie_path %>
-        ||
-        <%= link_to 'New genre', new_genre_path %>
-        ||
-      <% end %>
+    <header>
+      <nav class="log-nav">
+        <% if @current_user.present? %>
+          <%= link_to "Log out #{@current_user.name}", login_path, :method => 'delete' %>
+        <% else %>
+          <%= link_to 'Sign up', new_user_path %>
 
-      <% if @current_user.present? %>
-        <%= link_to "Log out #{@current_user.name}", login_path, :method => 'delete' %>
-      <% else %>
-        <%= link_to 'Sign up', new_user_path %>
+          <%= link_to 'Log in', login_path %>
+        <% end %>
+      </nav>
+      <h1 class="title-all">
+        MOVIE NIGHT DB
+      </h1>
+      <nav class="selection-nav">
+        <%= link_to 'Home', '/' %>
         ||
-        <%= link_to 'Sign in', login_path %>
-      <% end %>
-    </nav>
+        <%= link_to 'Movies', movies_path %>
+        ||
+        <%= link_to 'Actors', actors_path %>
+        ||
+        <%= link_to 'Directors', directors_path %>
+        ||
+        <%= link_to 'Genres', genres_path %>
+
+        <% if @current_user.present? %>
+          ||
+          <%= link_to 'favourites', favourites_path %>
+        <% end %>
+      </nav>
+    </header>
     <main class="container">
       <%= yield %>
     </main>

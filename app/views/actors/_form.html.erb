@@ -1,11 +1,27 @@
-<%= form_for @actor do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-    <%= f.label :photo %>
-    <%= f.url_field :photo %>
-    <%= f.label :birthplace %>
-    <%= f.text_field :birthplace %>
-    <%= f.label :dob, 'Date of birth' %>
-    <%= f.text_field :dob, :placeholder => 'YYYY-MM-DD' %>
-    <%= f.submit %>
-<% end %>
+<div class="form-container-parent">
+    <%= form_for @actor do |f| %>
+        <div class="form-block">
+            <%= f.label :name %>
+            <br>
+            <%= f.label :photo %>
+            <br>
+            <%= f.label :birthplace %>
+            <br>
+            <%= f.label :dob, 'Date of birth' %>
+            <br>
+        </div>
+        <div class="form-block">
+            <%= f.text_field :name, :placeholder => 'John Doe', :required => true %>
+            <br>
+            <%= f.url_field :photo, :placeholder => 'https://...' %>
+            <br>
+            <%= f.text_field :birthplace, :placeholder => 'Somewhere, World' %>
+            <br>
+            <%= f.text_field :dob, :placeholder => 'YYYY-MM-DD' %>
+            <br>
+        </div>
+        <div class="btn-container">
+            <%= f.submit :class => "submit-btn" %>
+        </div>
+    <% end %>
+</div>

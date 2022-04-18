@@ -1,18 +1,13 @@
-<h1>
-    <%= @genre.name %>
-</h1>
-
-<ul>
-    <% @genre.movies.each do |movie| %>
-        <li>
-            <%= movie.title %>
-        </li>
-    <% end %>
-</ul>
-
-<% if @current_user.present? %>
-    <div>
-        <%= link_to 'Edit genre', edit_genre_path(@genre) %>
-        <%= link_to 'Delete genre', @genre, :method => 'delete', :data => { :confirm => 'Sure?' } %>
+<div class="center-block bottom-gap">
+    <h1 class="show-headers">
+        <%= @genre.name %> Movies
+    </h1>
+    <div class="show-container">
+        
+        <div class="show-list-display">
+            <% @genre.movies.each do |movie| %>
+                <%= link_to(movie.title, movie, :class => 'genres') %>
+            <% end %>
+        </div>
     </div>
-<% end %>
+</div>

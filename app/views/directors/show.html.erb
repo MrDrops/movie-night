@@ -1,10 +1,45 @@
-<h1>
-    <%= @director.name %>
-</h1>
-
 <% if @current_user.present? %>
-    <div>
-        <%= link_to 'Edit director', edit_director_path(@director) %>
-        <%= link_to 'Delete director', @director, :method => 'delete' %>
+    <div class="user-options-show">
+        <%= link_to 'Edit director', edit_director_path(@director), :class => 'user-show-link' %>
+        <%= link_to 'Delete director', @director, :method => 'delete', :class => 'user-show-link' %>
     </div>
 <% end %>
+
+<div class="center-block bottom-gap">
+    <h1 class="show-headers">
+        <%= @director.name %>
+    </h1>
+    <div class="show-container">
+        <% if @director.photo.present?%>
+            <div class="feature-container">
+                <%= image_tag @director.photo, :class => 'feature' %>
+            </div>
+        <% end %>
+        <div class="show-info">
+            Birthplace: 
+            <% if @director.birthplace.present?%>
+                <%= @director.birthplace %>
+                <br>
+            <% end %>
+
+            Date of birth:
+            <% if @director.dob.present?%>
+                 <%= @director.dob.strftime '%A, %B %e, %Y' %>
+            <% end %>
+        </div>
+        
+        <div class="show-list-display">
+            <h2>
+                Movies
+            </h2>
+                <% if @director.movies.length > 0%>
+                    <% @director.movies.each do |movie| %>
+                        <%= link_to(movie.title, movie, :class => 'show-link') %>
+                        <br>
+                    <% end %>
+                <% end %>
+        </div>
+
+
+    </div>
+</div>

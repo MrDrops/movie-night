@@ -1,12 +1,24 @@
-<h1>
-    Log In
-</h1>
+<div class="list-item-container login">
+    <h1>
+        Log In
+    </h1>
 
-<%= form_tag login_path do %>
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    
-    <%= submit_tag "Sign In" %>
-<% end %>
+    <div class="form-container-parent">
+        <%= form_tag login_path do %>
+            <div class="form-block">
+                <%= label_tag :email %>
+                <br>
+                <%= label_tag :password %>
+            </div>
+            <div class="form-block">
+                <%= email_field_tag :email %>
+                <br>
+                <%= password_field_tag :password %>
+                <br>
+            </div>
+            <div class="btn-container">
+                <%= submit_tag "Sign In", :class => "submit-btn" %>
+            </div>
+        <% end %>
+    </div>
+</div>

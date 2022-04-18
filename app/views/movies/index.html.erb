@@ -1,10 +1,24 @@
-<h1>
-    All Movies
-</h1>
-
-<% @movies.each do |movie| %>
-    <p>
-        <%= image_tag(movie.poster, :class => 'thumb') %>
-        <%= link_to(movie.title, movie_path(movie.id)) %>
-    </p>   
+<% if @current_user.present? %>
+    <div class="user-options-show">
+        <%= link_to 'Add new movie', new_movie_path(@movie), :class => 'user-show-link' %>
+    </div>
 <% end %>
+
+<div class="center-block">
+    <h1 class="all-page-headers">
+        Movies
+    </h1>
+
+    <% @movies.each do |movie| %>
+        <%= link_to(movie_path(movie.id), :class => 'title-path') do %>
+            <div class="list-item-container">
+                <% if movie.poster.present?%>
+                    <%= image_tag movie.poster, :class => 'thumb' %>
+                <% end %>
+                <span class="pic-name">
+                    <%= movie.title %>
+                </span>
+            </div> 
+        <% end %>
+    <% end %>
+</div>

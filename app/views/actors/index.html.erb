@@ -1,10 +1,24 @@
-<h1>
-    All Actors
-</h1>
-
-<% @actors.each do |actor| %>
-    <p>
-        <%= image_tag actor.photo, :class => 'thumb' %>
-        <%= link_to(actor.name, actor_path(actor.id)) %>
-    </p>   
+<% if @current_user.present? %>
+    <div class="user-options-show">
+        <%= link_to 'Add new actor', new_actor_path(@actor), :class => 'user-show-link' %>
+    </div>
 <% end %>
+
+<div class="center-block">
+    <h1 class="all-page-headers">
+        Actors
+    </h1>
+
+    <% @actors.each do |actor| %>
+        <%= link_to(actor_path(actor.id), :class => 'title-path') do %>
+            <div class="list-item-container">
+                <% if actor.photo.present?%>
+                    <%= image_tag actor.photo, :class => 'thumb' %>
+                <% end %>
+                <span class="pic-name">
+                    <%= actor.name %>
+                </span>
+            </div> 
+        <% end %>
+    <% end %>
+</div>

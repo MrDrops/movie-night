@@ -1,9 +1,15 @@
-<h1>
-    All Genres
-</h1>
+<div class="center-block">
+    <h1 class="all-page-headers">
+        Genres
+    </h1>
 
-<% @genres.each do |genre| %>
-    <p>
-        <%= link_to(genre.name, genre_path(genre.id)) %>
-    </p>   
-<% end %>
+    <% @genres.each do |genre| %>
+        <%= link_to(genre_path(genre.id), :class => 'title-path') do %>
+            <div class="list-item-container">
+                <span class="genres">
+                    <%= genre.name %>
+                </span>
+            </div> 
+        <% end %>
+    <% end %>
+</div>

@@ -1,0 +1,27 @@
+<div class="form-container-parent">
+    <%= form_for @favourite do |f| %>
+        <div class="form-block">
+            <%= f.label :name, "List name" %>
+            <br>
+            <%= f.label :movie_id, "Best Movie" %>
+            <br>
+            <%= f.label :movie_id, "Second Movie" %>
+            <br>
+            <%= f.label :movie_id, "Third Movie" %>
+            <br>
+        </div>
+        <div class="form-block">
+            <%= f.text_field :name, :required => true %>
+            <br>
+            <%= f.collection_select(:movie_ids, @movies, :id, :title, prompt: true) %>
+            <br>
+            <%= f.collection_select(:movie_ids, @movies, :id, :title, prompt: true) %>
+            <br>
+            <%= f.collection_select(:movie_ids, @movies, :id, :title, prompt: true) %>
+            <br>
+        </div>
+        <div class="btn-container">
+            <%= f.submit :class => "submit-btn" %>
+        </div>
+    <% end %>
+</div>

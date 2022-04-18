@@ -1,21 +1,44 @@
-<h1>
-    <%= @actor.name %>
-</h1>
-<h2>
-    Date of birth:
-    <%= @actor.dob.strftime '%A, %B %e, %Y' unless @actor.dob.nil? %>
-</h2>
-
-<ul>
-    <% @actor.movies.each do |movie| %>
-        <li>
-            <%= movie.title %>
-        </li>
-    <% end %>
-</ul>
 <% if @current_user.present? %>
-    <div>
-        <%= link_to 'Edit actor', edit_actor_path(@actor) %>
-        <%= link_to 'Delete actor', @actor, :method => 'delete', :data => { :confirm => 'Sure?' } %>
+    <div class="user-options-show">
+        <%= link_to 'Edit actor', edit_actor_path(@actor), :class => 'user-show-link' %>
+        <%= link_to 'Delete actor', @actor, :method => 'delete', :class => 'user-show-link' %>
     </div>
 <% end %>
+
+<div class="center-block bottom-gap">
+    <h1 class="show-headers">
+        <%= @actor.name %>
+    </h1>
+    <div class="show-container">
+        <% if @actor.photo.present?%>
+            <div class="feature-container">
+                <%= image_tag @actor.photo, :class => 'feature' %>
+            </div>
+        <% end %>
+
+        <div class="show-info">
+            Birthplace: 
+            <% if @actor.birthplace.present?%>
+                <%= @actor.birthplace %>
+                <br>
+            <% end %>
+            
+            Date of birth: 
+            <% if @actor.dob.present?%>
+                <%= @actor.dob.strftime '%A, %B %e, %Y' %>
+            <% end %>
+        </div>
+        
+        <div class="show-list-display">
+            <h2>
+                Movies
+            </h2>
+            <% if @actor.movies.length > 0%>
+                <% @actor.movies.each do |movie| %>
+                    <%= link_to(movie.title, movie, :class => 'show-link') %>
+                    <br>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

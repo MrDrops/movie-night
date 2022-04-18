@@ -1,10 +1,24 @@
-<h1>
-    All Directors
-</h1>
-
-<% @directors.each do |director| %>
-    <p>
-        <%= image_tag director.photo, :class => 'thumb' %>
-        <%= link_to(director.name, director_path(director.id)) %>
-    </p>   
+<% if @current_user.present? %>
+    <div class="user-options-show">
+        <%= link_to 'Add new director', new_director_path(@director), :class => 'user-show-link' %>
+    </div>
 <% end %>
+
+<div class="center-block">
+    <h1 class="all-page-headers">
+        Directors
+    </h1>
+
+    <% @directors.each do |director| %>
+        <%= link_to(director_path(director.id), :class => 'title-path') do %>
+            <div class="list-item-container">
+                <% if director.photo.present?%>
+                    <%= image_tag director.photo, :class => 'thumb' %>
+                <% end %>
+                <span class="pic-name">
+                    <%= director.name %>
+                </span>
+            </div> 
+        <% end %>
+    <% end %>
+</div>

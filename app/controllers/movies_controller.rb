@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @directors = Director.all
   end
 
   def create
@@ -14,6 +15,7 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
+    @directors = Director.all
   end
 
   def update
@@ -24,6 +26,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @directors = Director.all
   end
 
   def destroy
@@ -34,6 +37,6 @@ class MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:title, :url_field, :release, :synopsis)
+    params.require(:movie).permit(:title, :url_field, :release, :director_id, :synopsis)
   end
 end

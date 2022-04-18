@@ -1,11 +1,31 @@
-<%= form_for @movie do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title, :required => true %>
-    <%= f.label :poster %>
-    <%= f.url_field :poster %>
-    <%= f.label :release %>
-    <%= f.text_field :release, :placeholder => 'YYYY-MM-DD' %>
-    <%= f.label :synopsis %>
-    <%= f.text_field :synopsis %>
-    <%= f.submit %>
-<% end %>
+<div class="form-container-parent">
+    <%= form_for @movie do |f| %>
+        <div class="form-block">
+            <%= f.label :title %>
+            <br>
+            <%= f.label :poster %>
+            <br>
+            <%= f.label :release %>
+            <br>
+            <%= f.label :director_id, 'Director' %>
+            <br>
+            <%= f.label :synopsis %>
+            <br>
+        </div>
+        <div class="form-block">
+            <%= f.text_field :title, :placeholder => 'Movie', :required => true %>
+            <br>
+            <%= f.url_field :poster, :placeholder => 'https://...' %>
+            <br>
+            <%= f.text_field :release, :placeholder => 'YYYY-MM-DD' %>
+            <br>
+            <%= f.collection_select(:director_id, @directors, :id, :name, prompt: true) %>
+            <br>
+            <%= f.text_field :synopsis %>
+            <br>
+        </div>
+        <div class="btn-container">
+            <%= f.submit :class => "submit-btn" %>
+        </div>
+    <% end %>
+</div>

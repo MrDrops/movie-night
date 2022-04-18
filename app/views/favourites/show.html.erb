@@ -1,2 +1,23 @@
-<h1>Favourites#show</h1>
-<p>Find me in app/views/favourites/show.html.erb</p>
+<% if @current_user.present? %>
+    <div class="user-options-show">
+        <%= link_to 'Edit favourites', edit_favourite_path(@favourite), :class => 'user-show-link' %>
+        <%= link_to 'Delete favourite list', @favourite, :method => 'delete', :class => 'user-show-link' %>
+    </div>
+<% end %>
+
+<div class="center-block bottom-gap">
+    <h1 class="show-headers">
+        <%= @favourite.name %>
+    </h1>
+    <div class="show-container">
+        <div class="show-list-display">
+            <h2>
+                Movies
+            </h2>
+            <% @favourite.movies.each do |movie| %>
+                <%= link_to(movie.title, movie, :class => 'show-link') %>
+                <br>
+            <% end %>
+        </div>
+    </div>
+</div>

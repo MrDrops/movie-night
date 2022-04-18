@@ -1,14 +1,21 @@
-<h1>
-    HOME PAGE FOR MOVIE NIGHT DB
-</h1>
-
-<% if @current_user.present? %>
-    <p>
-        Welcome <%= @current_user.name %>
-    </p>
-<% else %>
-    <p>
-        Hello new visitor!
-        Feel free to browse, or sign up.
-    </p>
-<% end %>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="welcome">
+            <% if @current_user.present? %>
+            <h1>
+                Welcome <%= @current_user.name %>
+            </h1>
+            <% else %>
+            <h1>
+                Hello Stranger!
+            </h1>
+            <br>
+            <h3>
+                Feel free to browse, or sign up.
+            </h3>
+            <% end %>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>

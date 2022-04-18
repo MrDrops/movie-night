@@ -1,21 +1,57 @@
-<h1>
-    <%= @movie.title %>
-</h1>
-<h2>
-    <%= @movie.release.strftime '%A, %B %e, %Y' unless @movie.release.nil? %>
-</h2>
-
-<ul>
-    <% @movie.actors.each do |actor| %>
-        <li>
-            <%= actor.name %>
-        </li>
-    <% end %>
-</ul>
-
 <% if @current_user.present? %>
-    <div>
-        <%= link_to 'Edit movie', edit_movie_path(@movie) %>
-        <%= link_to 'Delete movie', @movie, :method => 'delete', :data => { :confirm => 'Sure?' } %>
+    <div class="user-options-show">
+        <%= link_to 'Edit movie', edit_movie_path(@movie), :class => 'user-show-link' %>
+        <%= link_to 'Delete movie', @movie, :method => 'delete', :class => 'user-show-link' %>
     </div>
 <% end %>
+
+<div class="center-block bottom-gap">
+    <h1 class="show-headers">
+        <%= @movie.title %>
+    </h1>
+    <div class="show-container">
+        <% if @movie.poster.present?%>
+            <div class="feature-container">
+                <%= image_tag @movie.poster, :class => 'feature' %>
+            </div>
+        <% end %>
+
+        <h2>
+            Release date:
+        </h2>
+        <% if @movie.release.present?%>
+            <p class="movie-p-show">
+                <%= @movie.release.strftime '%A, %B %e, %Y' %>
+            </p>
+        <% end %>
+
+        <div class="show-info">
+            <h2>
+                Director:
+            </h2>
+            <% if @movie.director_id.present? %>
+                <p>
+                    <%= link_to(@directors.find(@movie.director_id).name, @directors.find(@movie.director_id), :class => 'show-link') %>
+                </p>
+            <% end %>
+            
+            <div class="show-list-display">
+                <h2>
+                    Actors
+                </h2>
+                <% if @movie.actors.length > 0 %>
+                    <% @movie.actors.each do |actor| %>
+                        <%= link_to(actor.name, actor, :class => 'show-link') %>
+                        <br>
+                    <% end %>
+                <% end %>
+            </div>
+            <h2>
+                Synopsis
+            </h2>
+            <% if @movie.synopsis.present?%>
+                <p class="movie-p-show">
+                    <%= @movie.synopsis %>
+                </p>
+            <% end %>
+        </div>

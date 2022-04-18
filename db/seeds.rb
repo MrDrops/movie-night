@@ -4,8 +4,8 @@ m1 = Movie.create(:title => 'The Matrix', :poster => 'https://i.imgur.com/3twH6I
 m2 = Movie.create(:title => 'John Wick', :poster => 'https://i.imgur.com/pFY68Nk.png', :release => '2015-02-03', :synopsis => 'Dog dies, guy kills everybody')
 m3 = Movie.create(:title => 'John Wick 2', :poster => 'https://i.imgur.com/HXFGYyZ.png', :release => '2017-02-10', :synopsis => 'ldaodnh ioh adf b acjviughadgf asfdjhla;f')
 m4 = Movie.create(:title => 'Event Horison', :poster => 'https://i.imgur.com/JhseLCa.png', :release => '2006-04-18', :synopsis => 'fadfasdf hflad hfa ajdfha fdohsdass')
-m5 = Movie.create(:title => 'Jurassic Park', :poster => 'https://imgur.com/3db94204-8c09-4cfa-bc59-d0481c404f0e', :release => '1993-06-11', :synopsis => 'aasdf i  hlgfhg yugf lahg gdf lhk dhfg lh u')
-m6 = Movie.create(:title => 'Star Wars IV', :poster => 'https://imgur.com/0e78e073-2f57-4044-93fb-7cd16527c784', :release => '1977-03-25', :synopsis => 'adfghk jkhf jhfdjfh ifu nafsdf uag eye')
+m5 = Movie.create(:title => 'Jurassic Park', :poster => 'https://i.imgur.com/wwNlQfI.png', :release => '1993-06-11', :synopsis => 'aasdf i  hlgfhg yugf lahg gdf lhk dhfg lh u')
+m6 = Movie.create(:title => 'Star Wars IV', :poster => 'https://i.imgur.com/6PUarWs.jpg', :release => '1977-03-25', :synopsis => 'adfghk jkhf jhfdjfh ifu nafsdf uag eye')
 m7 = Movie.create(:title => 'Raiders of the Lost Ark', :poster => 'https://i.imgur.com/miR4UAM.png', :release => '1981-06-12', :synopsis => 'fkgf fk udbv ,bvaruyg uvvfu luaiygf sdhfbh sdfbf g ads')
 m8 = Movie.create(:title => 'Blade Runner', :poster => 'https://i.imgur.com/Z1b6WlG.png', :release => '2001-10-30', :synopsis => 'iygfyg nb iygfiyuweg uy jjfaiyuf t bf h ywe db iyao fsd')
 m9 = Movie.create(:title => 'Alien', :poster => 'https://i.imgur.com/ynbSN39.png', :release => '1979-05-25', :synopsis => 'Lorem ipsum stratos defim nubis scon')
@@ -39,7 +39,7 @@ a11 = Actor.create(:name => 'Zoe Saldana', :photo => 'https://i.imgur.com/5d0pck
 a12 = Actor.create(:name => 'Gwyneth Paltrow', :photo => 'https://i.imgur.com/RzPWHgN.png', :birthplace => 'Los Angeles, California, USA', :dob => '1972-09-27')
 a13 = Actor.create(:name => 'Matt Damon', :photo => 'https://i.imgur.com/efH0S5t.png', :birthplace => 'Cambridge, Massachusetts, USA', :dob => '1970-10-08')
 a14 = Actor.create(:name => 'Kate Winslet', :photo => 'https://i.imgur.com/wk7rBev.png', :birthplace => 'Reading, Berkshire, England', :dob => '1975-10-05')
-a15 = Actor.create(:name => 'Jim Carrey', :photo => 'https://i.imgur.com/AU74t1v.png', :birthplace => 'Newmarket, Ontario, Canada', :dob => '1962-01-17')
+a15 = Actor.create(:name => 'Jim Carrey', :photo => 'https://i.imgur.com/mbxRPbt.png', :birthplace => 'Newmarket, Ontario, Canada', :dob => '1962-01-17')
 #a16 = Actor.create(:name => '', :photo => '', :birthplace => '', :dob => '')
 #a17 = Actor.create(:name => '', :photo => '', :birthplace => '', :dob => '')
 
@@ -47,7 +47,7 @@ puts "#{ Actor.count } actors created"
 
 Director.destroy_all
 
-d1 = Director.create(:name => 'Steven Spielbreg', :photo => 'https://i.imgur.com/mIhdCaQ.png', :birthplace => 'Ohio, USA', :dob => '1956-12-18')
+d1 = Director.create(:name => 'Steven Spielberg', :photo => 'https://i.imgur.com/mIhdCaQ.png', :birthplace => 'Ohio, USA', :dob => '1956-12-18')
 d2 = Director.create(:name => 'George Lucas', :photo => 'https://i.imgur.com/pEM40b7.png', :birthplace => 'Modesto, California, USA', :dob => '1944-05-14')
 d3 = Director.create(:name => 'The Wachowskis', :photo => 'https://i.imgur.com/Qtz3WtO.png', :birthplace => 'Chicago, Illinois, USA', :dob => '1965-06-21')
 d4 = Director.create(:name => 'Chad Stahelski', :photo => 'https://i.imgur.com/hRdc7LA.png', :birthplace => 'Palmer, Massachusets, USA', :dob => '1968-09-20')
@@ -80,10 +80,10 @@ puts "#{ Genre.count } genres created"
 
 User.destroy_all
 
-u1 = User.create(:name => 'Boss Man', :email => 'owner@email.com', :password => 'chicken')
-u2 = User.create(:name => 'John Doe', :email => 'johnd@email.com', :password => 'chicken')
-u3 = User.create(:name => 'Jane Jones', :email => 'janej@email.com', :password => 'chicken')
-u4 = User.create(:name => 'Erase Me', :email => 'forgetable@email.com', :password => 'chicken')
+u1 = User.create(:name => 'Boss Man', :email => 'owner@email.com', :password => 'chicken', :password_confirmation => 'chicken')
+u2 = User.create(:name => 'John Doe', :email => 'johnd@email.com', :password => 'chicken', :password_confirmation => 'chicken')
+u3 = User.create(:name => 'Jane Jones', :email => 'janej@email.com', :password => 'chicken', :password_confirmation => 'chicken')
+u4 = User.create(:name => 'Erase Me', :email => 'forgetable@email.com', :password => 'chicken', :password_confirmation => 'chicken')
 
 puts "#{ User.count } users created"
 
@@ -184,4 +184,4 @@ d11.movies << m17
 d12.movies << m4
 d13.movies << m15
 
-
+puts "movies have a director"

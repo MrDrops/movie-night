@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to(root_path) #redirect wherever
+      redirect_to(favourites_path) #redirect wherever
     else
       render(:new) #show form again
     end
